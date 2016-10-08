@@ -5,4 +5,4 @@
 declare var System: any;
 declare var require: any;
 declare var module: any;
-///<reference path="../node_modules/firebase/firebase.d.ts" /
+/// <reference path="../node_modules/firebase/firebase.d.ts" />
