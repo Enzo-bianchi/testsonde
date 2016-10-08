@@ -1,3 +1,95 @@
-<h1>
-  {{title}}
-</h1>
+<div class="row">
+  <div class="col s12 m3">
+    <div class="card  light-blue darken-3">
+      <div class="card-content white-text">
+        <span class="card-title">Sonde 1</span>
+        <p class="temperatureactuelle">{{ lastTemperatureS1 }}°C</p>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m3">
+    <div class="card red darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Sonde 2</span>
+        <p class="notemp">Inconnu</p>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m3">
+    <div class="card  red darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Sonde 3</span>
+        <p class="notemp">Inconnu</p>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m3">
+    <div class="card  red darken-4">
+      <div class="card-content white-text">
+        <span class="card-title">Sonde 4</span>
+        <p class="notemp">Inconnu</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card light-green darken-2">
+      <div class="card-content white-text">
+        <span class="card-title">Les 10 dernières températures</span>
+        <div class="row">
+          <div class="col m3">
+            <p>Sonde 1</p>
+            <ul>
+              <li class="text" *ngFor="let item of temperatureS1 | async">
+                <p>{{item.val()}}°C</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col m3">
+            <p>Sonde 2</p>
+            <ul>
+              <li>
+                <p>Inconnu
+                  <p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col m3">
+            <p>Sonde 3</p>
+            <ul>
+              <li>
+                <p>Inconnu
+                  <p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col m3">
+            <p>Sonde 4</p>
+            <ul>
+              <li>
+                <p>Inconnu
+                  <p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card light-green darken-2">
+      <div class="card-content white-text">
+        <span class="card-title">Graphique</span>
+        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
